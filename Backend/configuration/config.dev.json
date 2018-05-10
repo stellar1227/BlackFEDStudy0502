@@ -1,0 +1,6 @@
+{
+  "PORT": 8080,
+  "DB_NAME": "todo_dev",
+  "DB_USER": "every",
+  "DB_PASSWD": "every01234"
+}

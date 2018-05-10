@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "set NODE_PATH=. && set NODE_ENV=development && nodemon && index.js",
+    "serve": "set NODE_PATH=. && set NODE_ENV=production && nodemon && index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  },
+  "devDependencies": {},
+  "description": ""
+}
