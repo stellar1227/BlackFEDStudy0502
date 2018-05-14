@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import Layout from '../styles/Layout';
 import List from '../components/List';
+import InputBox from '../components/InputBox';
 
 class TodoView extends Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class TodoView extends Component {
         return (
             <Layout>
                 <List />
+                <InputBox/>
             </Layout>
         );
     }

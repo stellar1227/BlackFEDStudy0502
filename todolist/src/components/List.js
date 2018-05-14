@@ -2,30 +2,64 @@ import React, { Component, Fragment } from 'react';
 import Icon from 'react-icons-kit';
 import { checkmark } from 'react-icons-kit/ionicons';
 import styled from 'styled-components';
+import icoDone from '../styles/images/ico_status_done.png';
+import icoReady from '../styles/images/ico_status_ready2.png';
 
-const List = styled.div`
-  display: flex; flex-direction: column;
+const List = styled.article`
+ 
 `;
-const Item = styled.div`
-  position: relative; flex-basis: 60px;
-  background-color: ${p => p.done ? '#242125' : '#312E36'};
-  & > div.point {
-    position: absolute; top: 50%; left: 20px; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%;
-    background: ${p => p.done ? '#363439' : 'linear-gradient(#F48DA8, #E9465B)'};
-  }
-  & > div.content {
-    position: absolute; top: 50%; left: 50px; transform: translateY(-40%); width: 300px; height: 60px; line-height: 60px; font-size: 1em; font-weight: 500;
-    color: ${p => p.done ? '#4E494B' : '#A29B97'};
-    &::before { position: absolute; top: 5px; left: 0; display: block; content: '14 May'; height: 20px; line-height: 20px; font-size: .65rem; font-weight: normal; }
-  }
-  & > div.check {
-    position: absolute; top: 50%; right: 20px; transform: translateY(-50%); width: 60px; height: 30px; border-radius: 15px; cursor: pointer;
-    background-color: ${p => p.done ? '#4E494B' : '#807374'};
-    & > div { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-  }
-  
-  &::before { position: absolute; content: ''; top: 0; left: 25px; width: 0; height: 100%; border-left: 2px solid ${p => p.done ? '#363439' : '#3F3B40'}; }
+const ListTitle = styled.h2`
+    margin:0 0 20px 20px;
+    padding:0 10px;
+    font-size:1.8rem;
+    line-height:1;
+    display:inline-block;
+    background:#faa199;
+    border-radius:20% 30% 10% 15%;
 `;
+
+const ListItem = styled.li`
+    padding:0 20px;
+    margin-bottom:20px;
+    display:flex;
+`;
+
+const NoItem = styled.li`
+    text-align:center;
+    font-size:2rem;
+    color:#53b3c3
+`;
+const TaskInfo = styled.div`
+    flex:1;
+    margin-right:20px;
+    border-bottom:2px dashed #333;
+    padding:0 10px 10px;
+    .contents{
+        font-size:1.3rem;
+    }
+    .hash{
+        color:#888;
+    }
+    text-decoration: ${props => props.isDone ? 'line-through' : 'none' }
+`;
+const Status = styled.button.attrs({
+    type : "button"
+})`
+    width:50px;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    background: url(${props => props.isDone ? icoDone : icoReady }) no-repeat 0 0;
+    color:${props => props.isDone ? '#fff' : '#333' };
+    transform:rotate(0deg);
+    &:hover{
+        transform:rotate(360deg);
+        transition : transform .5s;
+    }
+`;
+
+
+
 
 class ListComponent extends Component {
     constructor(props) {
@@ -35,34 +69,30 @@ class ListComponent extends Component {
     render() {
         return (
             <List>
-                <Item>
-                    <div className="point" />
-                    <div className="content">Todo List 디자인하기</div>
-                    <div className="check">
-                        {/* <Icon icon={checkmark} /> */}
-                    </div>
-                </Item>
-                <Item>
-                    <div className="point" />
-                    <div className="content">Todo List 데이터 연결</div>
-                    <div className="check">
-                        {/* <Icon icon={checkmark} /> */}
-                    </div>
-                </Item>
-                <Item>
-                    <div className="point" />
-                    <div className="content">Todo List 회고록 쓰기</div>
-                    <div className="check">
-                        {/* <Icon icon={checkmark} /> */}
-                    </div>
-                </Item>
-                <Item done>
-                    <div className="point" />
-                    <div className="content">Todo List Back-End 만들기</div>
-                    <div className="check">
-                        <Icon size={24} icon={checkmark} />
-                    </div>
-                </Item>
+                <ListTitle>I need to :</ListTitle>
+                <ul>
+                    <ListItem>
+                        <TaskInfo>
+                            <p class="contents">
+                                영국문학의 이해 7강 학습
+                            </p>
+                            <p class="hash">#공부, #언어, #영어, #자기계발</p>
+                        </TaskInfo>
+                        <Status>대기</Status>
+                    </ListItem>
+                    <ListItem >
+                        <TaskInfo  isDone={true}>
+                            <p class="contents">
+                                스트레칭 15분
+                            </p>
+                            <p class="hash">#운동, #매일매일, #다이어트, #자기계발</p>
+                        </TaskInfo>
+                        <Status  isDone={true}>
+                            완료
+                        </Status>
+                    </ListItem>
+                    <NoItem>할 일이 없당!</NoItem>
+                </ul>
             </List>
         );
     }

@@ -3,16 +3,27 @@ import styled from 'styled-components';
 
 import Header from '../components/Header';
 
-const Layout = styled.div`
-  position: fixed; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); width: 414px; height: 736px; padding-top: 100px; background-color: #242125; box-shadow: 0 3px 12px RGBA(0,0,0,.7);
+const Layout = styled.section`
+ max-width:700px;
+ min-width:600px;
+ margin:0 auto;
+ background:#c2f6c6;
+ box-sizing:border-box;
+ padding:50px;
+    & > div{
+        background:#fff;
+        border-radius:16px
+    }
 `;
 
 const LayoutComponent = (props) => {
     const { children } = props;
     return (
         <Layout>
-            <Header />
-            {children}
+            <div>
+                <Header />
+                {children}
+            </div>
         </Layout>
     );
 };

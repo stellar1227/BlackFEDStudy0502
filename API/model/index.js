@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const TodoSchema = new Schema({
-    isComplete : { type : Boolean, default : false, required : true},
+    isDone : { type : Boolean, default : false, required : true},
     content : { type : String , require : true },
-    createdAt : {type : Date , default : new Date, required: true},
-    completedAt : {type : Date, default : null}
+    hash : {type : String , default : "#미분류", required: true},
 },{ collection : 'todo'});
 
 const Todo = mongoose.model('Todo', TodoSchema);

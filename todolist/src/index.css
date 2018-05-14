@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&subset=korean');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-html,body,ul,li,ol,p,span,a,textarea,select,button,input,div,h1,h2,h3,h4{
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script');
+html,body,ul,li,ol,p,span,a,textarea,select,button,input,div,h1,h2,h3,h4, section, article, time{
   margin: 0;
   padding: 0;
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size:14px;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size:20px;
   color:#666;
 }
 h1,h2,h3,h4,h5,h6{
@@ -16,4 +15,28 @@ a {
 }
 ol,ul{
   list-style:none;
+}
+input, textarea{
+  box-sizing:border-box;
+  padding:10px;
+  border:1px solid #555;
+  border-radius:4px;
+  line-height:1;
+  font-size:1.1rem;
+  color:#333;
+}
+input:hover, textarea:hover {
+  border-color:#f59732
+}
+input:focus, textarea:focus{
+  outline:0;
+  border:2px solid #f59732
+}
+
+button{
+  padding:0;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  border-radius:4px;
 }
