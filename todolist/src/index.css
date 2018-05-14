@@ -1,5 +1,19 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&subset=korean');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html,body,ul,li,ol,p,span,a,textarea,select,button,input,div,h1,h2,h3,h4{
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size:14px;
+  color:#666;
+}
+h1,h2,h3,h4,h5,h6{
+  font-size:100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ol,ul{
+  list-style:none;
 }
